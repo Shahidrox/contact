@@ -1,0 +1,36 @@
+<% if !contect.blank? %>
+	<% contect.each do |f| %>
+		<div class="no-margin list" data-toggle="modal" data-target="#<%= f.id %>">
+			<div id="sport-group">
+				<div class="btn-group sportgroup">
+					<label class="btn btn-default sport-soccer" disabled="disabled">
+					</label>
+				</div>
+			</div>
+			<div class="col-xs-9 no-padding mar-t10">
+				<h5 class="no-margin ng-binding"><%= f.name %></h5>
+			<h6 class="text-gray members-text ng-binding ng-scope"><%= f.number %></h6>
+			</div>
+		</div>
+		<!-- Modal -->
+		<div class="modal fade" id="<%= f.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog modal-custom" role="document">
+				<div class="modal-content">
+					<div class="modal-body">
+						<div class="no-margin list">
+							<div id="sport-group">
+								<div class="btn-group sportgroup">
+								<label class="btn btn-default sport-soccer" disabled="disabled"></label>
+								</div>
+							</div>
+							<div class="col-xs-9 no-padding mar-t10">
+								<h5 class="no-margin ng-binding"><%= f.name %></h5>
+								<h6 class="text-gray members-text ng-binding ng-scope"><%= f.number %></h6>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<% end %>
+<% end %>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contectno</title>
+  <!-- General META -->
+	<meta charset="utf-8">
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+	<!-- Semantic META -->
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<header class="navbar navbar-default navbar-fixed-top">
+<div class="bg-theme app-header">
+	<div class="navbar-header row">
+		<!-- Nav bar Left Icons -->
+		<div class="col-xs-12 text-center  header-cols">
+		<!-- Navbar Center -->
+			<a class="navbar-ktn-center bg-transparent text-shrink">
+				<h4 class="text-white text-shrink">Test App</h4>
+			</a>
+		</div>
+	</div>
+</div>
+</header>
+<%= yield %>
+<script type="text/javascript">
+    function searchNo(value, total){
+        var digits = (""+total).split("");
+        $.ajax({
+            cache:false,
+            type:'GET',
+            url: '/search',
+            data:{
+                char:value,
+                allno:digits
+            },
+            success:function (msg) {
+            }
+        });
+    }
+</script>
+<div id="wrapper">
+    <div class="dialpad compact">
+        <div class="number"></div>
+        <div class="dials">
+            <ol>
+                <li class="digits"><p><strong>1</strong></p></li>
+                <li class="digits"><p><strong>2</strong><sup>abc</sup></p></li>
+                <li class="digits"><p><strong>3</strong><sup>def</sup></p></li>
+                <li class="digits"><p><strong>4</strong><sup>ghi</sup></p></li>
+                <li class="digits"><p><strong>5</strong><sup>jkl</sup></p></li>
+                <li class="digits"><p><strong>6</strong><sup>mno</sup></p></li>
+                <li class="digits"><p><strong>7</strong><sup>pqrs</sup></p></li>
+                <li class="digits"><p><strong>8</strong><sup>tuv</sup></p></li>
+                <li class="digits"><p><strong>9</strong><sup>wxyz</sup></p></li>
+                <li class="digits"><p><strong>*</strong></p></li>
+                <li class="digits"><p><strong>0</strong><sup>+</sup></p></li>
+                <li class="digits"><p><strong>#</strong></p></li>
+                <li class="digits"><p><strong><i class="fa fa-refresh"></i></strong><sup>Clear</sup></p></li>
+                <li class="digits"><p><strong><i class="fa fa-times"></i></strong><sup>Delete</sup></p></li>
+                <li class="digits pad-action"><p><strong><i class="fa fa-phone"></i></strong> <sup>Cal
+                    l</sup></p></li>
+            </ol>
+        </div>
+    </div>
+</div>
+</body>
+</html>
